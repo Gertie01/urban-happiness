@@ -33,14 +33,14 @@ export async function POST(req: NextRequest) {
     const candidates = response.candidates || [];
     const imagePart = candidates[0]?.content?.parts?.find((p: any) => p.inlineData);
 
-    if (!imagePart) {
-      return NextResponse.json({ error: "No image generated" }, { status: 500 });
-    }
+    if (!imagePart || !imagePart.inlineData) {
+  return NextResponse.json({ error: "No image generated" }, { status: 500 });
+}
 
-    return NextResponse.json({
-      b64: imagePart.inlineData.data,
-      mimeType: imagePart.inlineData.mimeType
-    });
+return NextResponse.json({
+  b64: imagePart.inlineData.data,
+  mimeType: imagePart.inlineData.mimeType
+});
 
   } catch (error: any) {
     console.error("Generation error:", error);
