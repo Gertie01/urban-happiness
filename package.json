@@ -16,7 +16,8 @@
     "lucide-react": "latest",
     "clsx": "latest",
     "tailwind-merge": "latest",
-    "react-dropzone": "latest"
+    "react-dropzone": "latest",
+    "@supabase/supabase-js": "latest"
   },
   "devDependencies": {
     "typescript": "latest",
